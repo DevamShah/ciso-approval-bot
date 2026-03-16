@@ -46,6 +46,11 @@ STATE_FILE = BASE_DIR / "processed_requests.json"
 LOG_DIR = BASE_DIR / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
+# Known Slack user IDs (populate with your team)
+SLACK_USERS: dict[str, str] = json.loads(
+    os.environ.get("SLACK_USERS", "{}")
+)
+
 # Bot signature appended to messages
 BOT_SIGNATURE = "Sent using"
 
